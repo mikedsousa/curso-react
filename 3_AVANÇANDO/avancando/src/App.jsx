@@ -7,6 +7,8 @@ import { useState } from 'react'
 import './App.css'
 import Data from './components/Data'
 
+// 4 - Renderização de listas
+import ListRender from './components/ListRender'
 function App() {
 
   return (
@@ -18,6 +20,7 @@ function App() {
       <img src={streets} alt="ruas a noite" />
       {/* 3 - useState */}
       <Data />
+      <ListRender />
     </>
   )
 }
