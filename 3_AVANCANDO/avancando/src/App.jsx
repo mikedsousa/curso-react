@@ -9,6 +9,7 @@ import Data from './components/Data'
 
 // 4 - Renderização de listas
 import ListRender from './components/ListRender'
+import ConditionalRender from './components/ConditionalRender'
 function App() {
 
   return (
@@ -21,6 +22,7 @@ function App() {
       {/* 3 - useState */}
       <Data />
       <ListRender />
+      <ConditionalRender />
     </>
   )
 }

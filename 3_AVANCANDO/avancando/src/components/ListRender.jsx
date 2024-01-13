@@ -11,6 +11,14 @@ const ListRender = () => {
     { id: 4, name: "Paulo", age: 34 },
   ]);
 
+  const deleteRandom = () => {
+    const randomNumber = Math.floor(Math.random() * 4);
+
+    setUsers((prevUsers) =>
+      prevUsers.filter((user) => randomNumber !== user.id)
+    );
+  };
+
   return (
     <div>
       <ul>
@@ -21,9 +29,13 @@ const ListRender = () => {
 
       <ul>
         {users.map((user) => (
-          <li key={user.id}>{user.name} - {user.age}</li>
+          <li key={user.id}>
+            {user.name} - {user.age}
+          </li>
         ))}
       </ul>
+      {/* 6 - Previous State */}
+      <button onClick={deleteRandom}>Delete random user</button>
     </div>
   );
 };
