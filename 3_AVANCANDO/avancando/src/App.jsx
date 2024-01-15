@@ -12,6 +12,18 @@ import ListRender from "./components/ListRender";
 import ConditionalRender from "./components/ConditionalRender";
 import ShowUserName from "./components/ShowUserName";
 import CarDetails from "./components/CarDetails";
+import Container from "./components/Container";
+
+{
+  /* 11 - Renderização de listas com componente*/
+}
+
+const cars = [
+  { id: 1, brand: "Ferrari", color: "Amarelo", km: 0 },
+  { id: 2, brand: "KIA", color: "Branco", km: 200000 },
+  { id: 3, brand: "Renault", color: "Azul", km: 32000 },
+];
+
 function App() {
   return (
     <>
@@ -30,6 +42,24 @@ function App() {
       {/* 9 - Desestruturando props */}
       <CarDetails brand="Ford" km={999} color="Vermelho" />
 
+      {/* 10 - Reaproveitamento de componentes */}
+      <CarDetails brand="Fiat" km={11999} color="Azul" />
+      <CarDetails brand="Chevrolet" km={99999} color="Preto" />
+
+      {cars.map((car) => (
+        <CarDetails
+          key={car.id}
+          brand={car.brand}
+          color={car.color}
+          km={car.km}
+        />
+      ))}
+
+      {/* 13 - Children*/}
+
+      <Container>
+        <p>Paragrafo do componente pai</p>
+      </Container>
     </>
   );
 }
