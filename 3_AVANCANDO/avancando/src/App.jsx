@@ -13,6 +13,9 @@ import ConditionalRender from "./components/ConditionalRender";
 import ShowUserName from "./components/ShowUserName";
 import CarDetails from "./components/CarDetails";
 import Container from "./components/Container";
+import ExecuteFunction from "./components/ExecuteFunction";
+import Message from "./components/Message";
+import ChangeMessage from "./components/ChangeMessage";
 
 {
   /* 11 - Renderização de listas com componente*/
@@ -25,6 +28,17 @@ const cars = [
 ];
 
 function App() {
+
+  function showMessage() {
+    console.log("Hello World!");
+  }
+
+  const [message, setMessage] = useState("");
+
+  const handleMessage = (msg) => {
+    setMessage(msg);
+  }
+
   return (
     <>
       <h1>Avançando em React</h1>
@@ -60,8 +74,13 @@ function App() {
       <Container>
         <p>Paragrafo do componente pai</p>
       </Container>
+      <ExecuteFunction myFunction={showMessage}/>
+
+      <Message msg={message} />
+      <ChangeMessage handleMessage={handleMessage} />
     </>
   );
 }
+
 
 export default App;
