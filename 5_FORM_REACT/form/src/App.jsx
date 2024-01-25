@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <h1>Form em React</h1>
-      <MyForm />
+      <MyForm userName="Mike de Sousa" userEmail="teste@teste.com"/>
     </>
   );
 }
