@@ -22,7 +22,7 @@ function App() {
 
   // Custom hook
 
-  const {data: items} = useFetch(url);
+  const { data: items, httpConfig } = useFetch(url);
 
   // Envio de dados
 
@@ -34,22 +34,23 @@ function App() {
 
     const product = {
       name,
-      price
-    }
+      price,
+    };
 
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product)
-    })
+    //! Refatorando post
+    httpConfig(product, "POST");
 
-    const addedProduct = await res.json();
-    setProducts((prevProducts) => [...products, addedProduct]);
-  }
+    // const res = await fetch(url, {
+    //   method: 'POST',
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(product)
+    // })
 
-
+    // const addedProduct = await res.json();
+    // setProducts((prevProducts) => [...products, addedProduct]);
+  };
 
   return (
     <>
@@ -57,11 +58,11 @@ function App() {
 
       <ul>
         {items &&
-        items.map((product) => (
-          <li key={product.id}>
-            {product.name} - R${product.price}
-          </li>
-        ))}
+          items.map((product) => (
+            <li key={product.id}>
+              {product.name} - R${product.price}
+            </li>
+          ))}
       </ul>
 
       {/* Envio de dados */}
