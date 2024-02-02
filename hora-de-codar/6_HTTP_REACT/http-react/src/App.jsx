@@ -22,7 +22,7 @@ function App() {
 
   // Custom hook
 
-  const { data: items, httpConfig, loading } = useFetch(url);
+  const { data: items, httpConfig, loading, error } = useFetch(url);
 
   // Envio de dados
 
@@ -57,6 +57,7 @@ function App() {
       <h1>HTTP em React</h1>
       {/* Loading */}
       {loading && <p>Carregando...</p>}
+      {error && <p>{error}</p>}
       <ul>
         {items &&
           items.map((product) => (
